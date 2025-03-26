@@ -9,11 +9,11 @@ class Solution:
         
         You can return the answer in any order.
         """
-        res = list()
-        for i in range(len(nums)):
-            right = target - nums[i]
-            if right in nums[i+1:]:
-                res.append(i)
-                res.append(nums.index(right))
-                return res
+        num_inx = {}
+        for i, num in enumerate(nums):
+            right = target - num
+            if right in num_inx:
+                return [num_inx[right], i]
+            num_inx[num] = i
+
             
